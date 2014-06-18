@@ -1,19 +1,17 @@
 /**
- * Main application file for: minnpost-green-line-demographics
+ * Main application file for: minnpost-swlrt-demographics
  *
  * This pulls in all the parts
  * and creates the main object for the application.
  */
 
 // Create main application
-define('minnpost-green-line-demographics', [
-  'jquery', 'underscore', 'mpConfig', 'mpFormatters',
-  'helpers',
+define('minnpost-swlrt-demographics', [
+  'jquery', 'underscore', 'mpConfig', 'helpers',
   'text!templates/application.underscore',
   'text!templates/fallback.underscore'
 ], function(
-  $, _, mpConfig, mpFormatters,
-  helpers, tApplication, tFallback
+  $, _, mpConfig, helpers, tApplication, tFallback
   ) {
 
   // Test for SVG
@@ -357,9 +355,9 @@ define('minnpost-green-line-demographics', [
 
     // Default options
     defaultOptions: {
-      projectName: 'minnpost-green-line-demographics',
+      projectName: 'minnpost-swlrt-demographics',
       remoteProxy: 'http://mp-jsonproxy.herokuapp.com/proxy?callback=?&url=',
-      el: '.minnpost-green-line-demographics-container',
+      el: '.minnpost-swlrt-demographics-container',
       availablePaths: {
         local: {
 
@@ -370,12 +368,12 @@ define('minnpost-green-line-demographics', [
         build: {
           css: [
             '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css',
-            'dist/minnpost-green-line-demographics.libs.min.css',
-            'dist/minnpost-green-line-demographics.latest.min.css'
+            'dist/minnpost-swlrt-demographics.libs.min.css',
+            'dist/minnpost-swlrt-demographics.latest.min.css'
           ],
           ie: [
-            'dist/minnpost-green-line-demographics.libs.min.ie.css',
-            'dist/minnpost-green-line-demographics.latest.min.ie.css'
+            'dist/minnpost-swlrt-demographics.libs.min.ie.css',
+            'dist/minnpost-swlrt-demographics.latest.min.ie.css'
           ],
           images: 'dist/images/',
           data: 'dist/data/'
@@ -383,15 +381,15 @@ define('minnpost-green-line-demographics', [
         deploy: {
           css: [
             '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css',
-            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-green-line-demographics/minnpost-green-line-demographics.libs.min.css',
-            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-green-line-demographics/minnpost-green-line-demographics.latest.min.css'
+            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-swlrt-demographics/minnpost-swlrt-demographics.libs.min.css',
+            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-swlrt-demographics/minnpost-swlrt-demographics.latest.min.css'
           ],
           ie: [
-            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-green-line-demographics/minnpost-green-line-demographics.libs.min.ie.css',
-            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-green-line-demographics/minnpost-green-line-demographics.latest.min.ie.css'
+            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-swlrt-demographics/minnpost-swlrt-demographics.libs.min.ie.css',
+            'https://s3.amazonaws.com/data.minnpost/projects/minnpost-swlrt-demographics/minnpost-swlrt-demographics.latest.min.ie.css'
           ],
-          images: 'https://s3.amazonaws.com/data.minnpost/projects/minnpost-green-line-demographics/images/',
-          data: 'https://s3.amazonaws.com/data.minnpost/projects/minnpost-green-line-demographics/data/'
+          images: 'https://s3.amazonaws.com/data.minnpost/projects/minnpost-swlrt-demographics/images/',
+          data: 'https://s3.amazonaws.com/data.minnpost/projects/minnpost-swlrt-demographics/data/'
         }
       }
     },
@@ -482,7 +480,7 @@ define('minnpost-green-line-demographics', [
 /**
  * Run application.
  */
-require(['jquery', 'minnpost-green-line-demographics'], function($, App) {
+require(['jquery', 'minnpost-swlrt-demographics'], function($, App) {
   $(document).ready(function() {
     var app = new App();
   });

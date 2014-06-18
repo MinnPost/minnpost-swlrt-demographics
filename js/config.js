@@ -16,6 +16,6 @@ require.config({
     'topojson': '../bower_components/topojson/topojson',
     'mpConfig': '../bower_components/minnpost-styles/dist/minnpost-styles.config',
     'mpFormatters': '../bower_components/minnpost-styles/dist/minnpost-styles.formatters',
-    'minnpost-green-line-demographics': 'app'
+    'minnpost-swlrt-demographics': 'app'
   }
 });

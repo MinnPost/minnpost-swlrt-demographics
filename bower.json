@@ -1,21 +1,19 @@
 {
-  "name": "minnpost-green-line-demographics",
+  "name": "minnpost-swlrt-demographics",
   "version": "0.0.0",
   "main": "index.html",
-  "homepage": "https://github.com/minnpost/minnpost-green-line-demographics",
+  "homepage": "https://github.com/minnpost/minnpost-swlrt-demographics",
   "repository": {
     "type": "git",
-    "url": "https://github.com/minnpost/minnpost-green-line-demographics"
+    "url": "https://github.com/minnpost/minnpost-swlrt-demographics"
   },
-  "bugs": "https://github.com/minnpost/minnpost-green-line-demographics/issues",
+  "bugs": "https://github.com/minnpost/minnpost-swlrt-demographics/issues",
   "license": "MIT",
   "author": {
     "name": "MinnPost",
     "email": "data@minnpost.com"
   },
   "dependencies": {
-    "ractive": "~0.4.0",
-    "ractive-events-tap": "~0.1.1",
     "requirejs": "~2.1.11",
     "almond": "~0.2.9",
     "text": "~2.0.12",
@@ -74,13 +72,6 @@
         "minnpost-styles/dist/minnpost-styles.config"
       ],
       "returns": "mpConfig"
-    },
-    "mpFormatters": {
-      "rname": "mpFormatters",
-      "js": [
-        "minnpost-styles/dist/minnpost-styles.formatters"
-      ],
-      "returns": "mpFormatters"
     },
     "d3": {
       "rname": "d3",

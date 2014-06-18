@@ -1,12 +1,12 @@
 {
-  "name": "minnpost-green-line-demographics",
+  "name": "minnpost-swlrt-demographics",
   "version": "0.0.0",
-  "homepage": "https://github.com/minnpost/minnpost-green-line-demographics",
+  "homepage": "https://github.com/minnpost/minnpost-swlrt-demographics",
   "repository": {
     "type": "git",
-    "url": "https://github.com/minnpost/minnpost-green-line-demographics"
+    "url": "https://github.com/minnpost/minnpost-swlrt-demographics"
   },
-  "bugs": "https://github.com/minnpost/minnpost-green-line-demographics/issues",
+  "bugs": "https://github.com/minnpost/minnpost-swlrt-demographics/issues",
   "license": "MIT",
   "author": {
     "name": "MinnPost",

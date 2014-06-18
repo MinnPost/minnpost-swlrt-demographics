@@ -1,6 +1,6 @@
-# Minnpost Green Line Demographics
+# Minnpost SWLRT Demographics
 
-Exploration of the new Green Line
+Exploration of the Southwest Light Rail (Green Line Extension).  Note that at current time, these are still just proposed stops and routes.
 
 You can see this project in action at *published story link goes here*.
 
@@ -19,18 +19,9 @@ You can see this project in action at *published story link goes here*.
     * http://api.censusreporter.org/1.0/data/show/latest?table_ids=B01001&geo_ids=14000US27053003800
 * Landmark data traced from [GeoJSON.io](http://geojson.io/#id=gist:zzolo/9e60510cae6db58eabd7).
 
-Get data sources:
-
-    mkdir -p data && cd data && wget ftp://gisftp.metc.state.mn.us/TransitRoutes.zip && unzip TransitRoutes.zip -d metrotransit-routes-shps && wget ftp://gisftp.metc.state.mn.us/PlannedTransitwayStations.zip && unzip PlannedTransitwayStations.zip -d metrotransit-planned-stations-shps && wget https://gist.githubusercontent.com/zzolo/9e60510cae6db58eabd7/raw/map.geojson -O landmarks.geo.json; cd -;`
-
 ## Data processing
 
-* Use GDAL to convert routes and stops to GeoJSON for easier processing: `ogr2ogr -f "GeoJSON" data/metrotransit-routes.geo.json data/metrotransit-routes-shps/TransitRoutes.shp -t_srs EPSG:4326 && ogr2ogr -f "GeoJSON" data/metrotransit-planned-stops.geo.json data/metrotransit-planned-stations-shps/PlannedTransitwayStations.shp -t_srs EPSG:4326;`
-* Get green line data: `node data-processing/get-green-line.js`
-* Get census data: `node data-processing/get-census-tracts.js`
-* Convert to TopoJSON for network performance and to fix some polygon issues.
-    * `topojson data/landmarks.geo.json -p > data/landmarks.topo.json`
-    * `topojson data/census-tracts.geo.json -p > data/census-tracts.topo.json`
+* Run: `make`
 
 ## Development and running locally
 
@@ -44,26 +35,19 @@ All commands are assumed to be on the [command line](http://en.wikipedia.org/wik
    * On a Mac, do: `brew install node`
 1. Optionally, for development, install [Grunt](http://gruntjs.com/): `npm install -g grunt-cli`
 1. Install [Bower](http://bower.io/): `npm install -g bower`
-
-
 1. Install [Sass](http://sass-lang.com/): `gem install sass`
    * On a Mac do: `sudo gem install sass`
-   1. Install [Compass](http://compass-style.org/): `gem install compass`
+1. Install [Compass](http://compass-style.org/): `gem install compass`
    * On a Mac do: `sudo gem install compass`
-
 
 ### Get code and install packages
 
 Get the code for this project and install the necessary dependency libraries and packages.
 
-1. Check out this code with [Git](http://git-scm.com/): `git clone https://github.com/MinnPost/minnpost-green-line-demographics.git`
-1. Go into the template directory: `cd minnpost-green-line-demographics`
+1. Check out this code with [Git](http://git-scm.com/): `git clone https://github.com/MinnPost/minnpost-swlrt-demographics.git`
+1. Go into the template directory: `cd minnpost-swlrt-demographics`
 1. Install NodeJS packages: `npm install`
 1. Install Bower components: `bower install`
-
-
-
-
 
 ### Running locally
 
@@ -104,7 +88,6 @@ Adding libraries is not difficult, but there are a few steps.
   "returns": "Library"
 }
 ```
-
 
 ### Testing
 

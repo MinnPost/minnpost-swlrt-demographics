@@ -3,7 +3,7 @@
 // to maintain a single HTML file for testing.
 
 (function() {
-  var projectName = 'minnpost-green-line-demographics';
+  var projectName = 'minnpost-swlrt-demographics';
 
   // Parse query string
   var parseQueryString = function() {

@@ -357,6 +357,6 @@ module.exports = function(grunt) {
 
 
   // Deploy tasks
-  grunt.registerTask('deploy', ['s3', 'inline_embed:minnpost-green-line-demographics']);
+  grunt.registerTask('deploy', ['s3', 'inline_embed:minnpost-swlrt-demographics']);
 
 };
