@@ -52,12 +52,12 @@ Get the code for this project and install the necessary dependency libraries and
 ### Running locally
 
 1. Run: `grunt server`
-    * This will run a local webserver for development and you can view the application in your web browser at [http://localhost:8808](http://localhost:8808).
+    * This will run a local webserver for development and you can view the application in your web browser at [http://localhost:8889](http://localhost:8889).
 1. By default, running a local server will show you the local development version.  But there are other builds that you can view by changing the query parameters.  Do note that you may have to run the build and deploy things for things to work normally.
-    * Local build: http://localhost:8808/?mpDeployment=build
-    * Build deployed on S3: http://localhost:8808/?mpDeployment=deploy
-    * Embedded version with local build: http://localhost:8808/?mpDeployment=build&mpEmbed=true
-    * Embedded version with S3 build: http://localhost:8808/?mpDeployment=deploy&mpEmbed=true
+    * Local build: http://localhost:8889/?mpDeployment=build
+    * Build deployed on S3: http://localhost:8889/?mpDeployment=deploy
+    * Embedded version with local build: http://localhost:8889/?mpDeployment=build&mpEmbed=true
+    * Embedded version with S3 build: http://localhost:8889/?mpDeployment=deploy&mpEmbed=true
 
 ### Developing
 
