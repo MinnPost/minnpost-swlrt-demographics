@@ -8,20 +8,16 @@ You can see this project in action at *published story link goes here*.
 
 ## Data
 
-* Green Line data from [MetroTransit](http://www.metrotransit.org/).
-    * Green line is route 902 (temporarily) and will be replacing route 50.
-    * [MetroTransit route data via DataFinder](http://www.datafinder.org/metadata/TransitRoutes.html)
-    * Stop data from the [Planned Transitway Stations dataset on DataFinder](http://www.datafinder.org/metadata/PlannedTransitwayStations.html)
-* Census data by tract from [CensusReporter](http://censusreporter.org/).
-    * [Ian Dees](https://twitter.com/iandees) was very kind to query the Census Reporter database to figure out which Census Tracts were next to or very close to the Green Line route.  Posted [here](https://gist.github.com/iandees/9cab0abe95a38f3f7954).
-    * This was also augmented by [Jane Tigan](https://twitter.com/janeellentigan/status/469480740522979328) to include a couple tracks that are included in the [Funders Collaborative Tracker](http://www.funderscollaborative.org/tracker).
-    * Manually stored in `data/census-tracts-ids.json`.
-    * http://api.censusreporter.org/1.0/data/show/latest?table_ids=B01001&geo_ids=14000US27053003800
-* Landmark data traced from [GeoJSON.io](http://geojson.io/#id=gist:zzolo/9e60510cae6db58eabd7).
+* SWLRT route data from [MetroTransit](http://www.metrotransit.org/).
+    * [MetroTransit route data via DataFinder](http://datafinder.org/metadata/PlannedTransitwayAlignments.html)
+        * [Direct download](ftp://gisftp.metc.state.mn.us/PlannedTransitwayAlignments.zip)
+* SWLRT stop data from  [MetroTransit](http://www.metrotransit.org/).
+    * [MetroTransit route data via DataFinder](http://www.datafinder.org/metadata/PlannedTransitwayStations.html)
+        * [Direct download](ftp://gisftp.metc.state.mn.us/PlannedTransitwayStations.zip)
 
 ## Data processing
 
-* Run: `make`
+* Run: `make all`
 
 ## Development and running locally
 

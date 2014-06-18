@@ -7,11 +7,10 @@ bower_components/
 dist/data.js
 dist/templates.js
 
-# "Big data"
-data/*shp*
-data/*.zip
-data/metrotransit-routes.geo.json
-data/metrotransit-planned-stops.geo.json
+# Data, original data may be checked in if there is
+# no downloadable sources
+data/original
+data/build
 
 
 # General git ignores
