@@ -345,7 +345,6 @@ define('minnpost-swlrt-demographics', [
           thisApp.data = thisApp.data || {};
           thisApp.data.route = a[0];
           thisApp.data.stops = b[0];
-          console.log(c[0]);
           thisApp.data.landmarksTopo = c[0];
           thisApp.data.tractsTopo = d[0];
 
