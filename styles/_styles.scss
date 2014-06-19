@@ -128,7 +128,6 @@ body .node-unpublished {
 
     .census-tract {
       fill: #FFFFFF;
-      fill-opacity: 0.85;
       stroke: #FFFFFF;
       stroke-width: 0.000025em;
       pointer-events: all;
@@ -157,13 +156,11 @@ body .node-unpublished {
 
       &.water {
         fill: #0793AB;
-        opacity: 0.45;
       }
 
       &.waterway {
         fill: none;
         stroke: #0793AB;
-        opacity: 0.5;
       }
 
       &.landmark {

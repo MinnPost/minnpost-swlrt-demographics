@@ -208,7 +208,7 @@ define('minnpost-swlrt-demographics', [
           .on('mouseover', function(d) {
             d3.select(d.point.stop).classed('active', true);
             thisApp.updateTooltip({
-              stop: d.point.properties.Station + ' station'
+              stop: d.point.properties.Station
             });
           })
           .on('mouseout', function(d) {

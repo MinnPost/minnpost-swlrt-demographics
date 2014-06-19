@@ -112,6 +112,8 @@ clean_convert:
 	rm -rv $(routes)
 	rm -rv $(stops)
 	rm -rv $(features)
+	rm -rv $(boundaries)
+	rm -rv $(tracts)
 
 
 # General
