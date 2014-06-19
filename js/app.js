@@ -158,6 +158,15 @@ define('minnpost-swlrt-demographics', [
           .attr('class', 'census-tract')
           .attr('d', projectionPath);
 
+      // Add boundaries
+      this.data.boundaries = topojson.feature(this.data.boundariesTopo,
+        this.data.boundariesTopo.objects['boundaries.geo']);
+      featureGroup.selectAll('.boundary')
+        .data(this.data.boundaries.features)
+        .enter().append('path')
+          .attr('class', 'boundary')
+          .attr('d', projectionPath);
+
       // Add landmarks
       this.data.landmarks = topojson.feature(this.data.landmarksTopo,
         this.data.landmarksTopo.objects['area-features.geo']);
@@ -339,14 +348,16 @@ define('minnpost-swlrt-demographics', [
         'swlrt-route.geo.json',
         'swlrt-stops.geo.json',
         'features.topo.json',
+        'boundaries.topo.json',
         'census-tracts.topo.json'
       ], this.options)
-        .done(function(a, b, c, d) {
+        .done(function(a, b, c, d, e) {
           thisApp.data = thisApp.data || {};
           thisApp.data.route = a[0];
           thisApp.data.stops = b[0];
           thisApp.data.landmarksTopo = c[0];
-          thisApp.data.tractsTopo = d[0];
+          thisApp.data.boundariesTopo = d[0];
+          thisApp.data.tractsTopo = e[0];
 
           // Remove loading
           thisApp.$el.find('.loading-container').slideUp('fast');
