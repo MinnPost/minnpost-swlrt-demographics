@@ -11,12 +11,15 @@ original := $(data)/original
 build := $(data)/build
 processing := $(data)/processing
 
+# Scripts
+script_tracts := $(processing)/get-census-tracts.js
+
 # Sources
 source_routes := ftp://gisftp.metc.state.mn.us/PlannedTransitwayAlignments.zip
 source_stops := ftp://gisftp.metc.state.mn.us/PlannedTransitwayStations.zip
-source_features := https://gist.githubusercontent.com/zzolo/791b7cd1153d65a4452d/raw/a3be1eaa5e4f328424c0948b31210370c9724925/map.geojson
+source_features := https://gist.githubusercontent.com/zzolo/791b7cd1153d65a4452d/raw/map.geojson
 
-# Local
+# Local sources
 local_routes_archive := $(original)/planned-transitways.zip
 local_routes := $(original)/planned-transitways
 local_routes_shp := $(original)/planned-transitways/PlannedTransitwayAlignments.shp
@@ -24,15 +27,18 @@ local_stops_archive := $(original)/planned-stations.zip
 local_stops := $(original)/planned-stations
 local_stops_shp := $(original)/planned-stations/PlannedTransitwayStations.shp
 local_features := $(original)/area-features.geo.json
+local_tract_ids := $(data)/census-tracts-ids.json
 
 # Converted
 geojson_routes := $(build)/swlrt-route.geo.json
 geojson_stops := $(build)/swlrt-stops.geo.json
+geojson_tracts := $(build)/census-tracts.geo.json
 
 # Final
 routes := $(data)/swlrt-route.geo.json
 stops := $(data)/swlrt-stops.geo.json
 features := $(data)/features.topo.json
+tracts := $(data)/census-tracts.topo.json
 
 
 
@@ -79,7 +85,11 @@ $(stops): $(local_stops_shp)
 $(features): $(local_features)
 	topojson $(local_features) -p -o $(features)
 
-convert: $(routes) $(stops) $(features)
+$(tracts): $(local_tract_ids)
+	node $(script_tracts)
+	topojson $(geojson_tracts) -p -o $(tracts)
+
+convert: $(routes) $(stops) $(features) $(tracts)
 clean_convert:
 	rm -rv $(build)/*
 	rm -rv $(routes)

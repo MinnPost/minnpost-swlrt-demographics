@@ -9,7 +9,7 @@ var request = require('request');
 var area = require('geojson-area');
 
 // Data
-var tracts = require('../data/census-tracts-ids.json');
+var tracts = require('../census-tracts-ids.json');
 
 // Variables
 // Median household income: B19013
@@ -20,7 +20,7 @@ var tables = ['B19013', 'B02008', 'B01003', 'B08301'];
 var acsGroup = 'acs2012_5yr';
 var geomUrl = 'http://api.censusreporter.org/1.0/geo/tiger2012/[[[GEOM_ID]]]?geom=true';
 var dataUrl = 'http://api.censusreporter.org/1.0/data/show/[[[ACS_GROUP]]]?table_ids=[[[TABLE_IDS]]]&geo_ids=[[[GEOM_IDS]]]';
-var geometryOutput = path.join(__dirname, '../data/census-tracts.geo.json');
+var geometryOutput = path.join(__dirname, '../build/census-tracts.geo.json');
 var censusGeoJSON;
 
 // Convert

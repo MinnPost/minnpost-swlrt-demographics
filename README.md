@@ -14,6 +14,8 @@ You can see this project in action at *published story link goes here*.
 * SWLRT stop data from  [MetroTransit](http://www.metrotransit.org/).
     * [MetroTransit route data via DataFinder](http://www.datafinder.org/metadata/PlannedTransitwayStations.html)
         * [Direct download](ftp://gisftp.metc.state.mn.us/PlannedTransitwayStations.zip)
+* Landmark features are manually traced on [GeoJSON.io](http://geojson.io/#id=gist:zzolo/791b7cd1153d65a4452d&map=12/44.9051/-93.3828).
+    * [Direct download](https://gist.githubusercontent.com/zzolo/791b7cd1153d65a4452d/raw/a3be1eaa5e4f328424c0948b31210370c9724925/map.geojson)
 
 ## Data processing
 

@@ -7,49 +7,51 @@
       <i class="loading"></i> Loading...
     </div>
 
-    <div class="demographics-chooser cf">
-      <div class="demographic pop <%= (currentSet == 'pop') ? 'active' : '' %>" data-set="pop">
-        <div class="inside">
-          <div class="strong">Population density</div>
-          <div class="caption">Population per square square kilometer.  &#177;<span class="margin"></span> margin of error &#8224;.</div>
-          <div class="legend"></div>
+    <div class="visual-container cf">
+      <div class="demographics-chooser cf">
+        <div class="demographic pop <%= (currentSet == 'pop') ? 'active' : '' %>" data-set="pop">
+          <div class="inside">
+            <div class="strong">Population density</div>
+            <div class="caption">Population per square square kilometer.  &#177;<span class="margin"></span> margin of error &#8224;.</div>
+            <div class="legend"></div>
+          </div>
+        </div>
+
+        <div class="demographic income <%= (currentSet == 'income') ? 'active' : '' %>" data-set="income">
+          <div class="inside">
+            <div class="strong">Household income</div>
+            <div class="caption">Median household income for each tract.  &#177;<span class="margin"></span> margin of error &#8224;.</div>
+            <div class="legend"></div>
+          </div>
+        </div>
+
+        <div class="demographic white <%= (currentSet == 'white') ? 'active' : '' %>" data-set="white">
+          <div class="inside">
+            <div class="strong">People of color</div>
+            <div class="caption">Percentage of population that are people of color (not white).  &#177;<span class="margin"></span> margin of error &#8224;.</div>
+            <div class="legend"></div>
+          </div>
+        </div>
+
+        <div class="demographic transit <%= (currentSet == 'transit') ? 'active' : '' %>" data-set="transit">
+          <div class="inside">
+            <div class="strong">Public transit</div>
+            <div class="caption">Percentage of worker population that uses public transportation for work.  &#177;<span class="margin"></span> margin of error &#8224;.</div>
+            <div class="legend"></div>
+          </div>
         </div>
       </div>
 
-      <div class="demographic income <%= (currentSet == 'income') ? 'active' : '' %>" data-set="income">
-        <div class="inside">
-          <div class="strong">Household income</div>
-          <div class="caption">Median household income for each tract.  &#177;<span class="margin"></span> margin of error &#8224;.</div>
-          <div class="legend"></div>
+      <div class="map-container">
+        <div class="tooltip-container">
+          <div class="tooltip">
+            <div class="stop-info"></div>
+            <div class="tract-info"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="demographic white <%= (currentSet == 'white') ? 'active' : '' %>" data-set="white">
-        <div class="inside">
-          <div class="strong">People of color</div>
-          <div class="caption">Percentage of population that are people of color (not white).  &#177;<span class="margin"></span> margin of error &#8224;.</div>
-          <div class="legend"></div>
-        </div>
+        <div id="line-map"></div>
       </div>
-
-      <div class="demographic transit <%= (currentSet == 'transit') ? 'active' : '' %>" data-set="transit">
-        <div class="inside">
-          <div class="strong">Public transit</div>
-          <div class="caption">Percentage of worker population that uses public transportation for work.  &#177;<span class="margin"></span> margin of error &#8224;.</div>
-          <div class="legend"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="map-container">
-      <div class="tooltip-container">
-        <div class="tooltip">
-          <div class="stop-info"></div>
-          <div class="tract-info"></div>
-        </div>
-      </div>
-
-      <div id="green-line-map"></div>
     </div>
 
   </div>
@@ -63,7 +65,7 @@
 
         Demographic data from the Census Bureau's 2012 American Community Survey 5 year estimates via <a href="http://censusreporter.org/" target="_blank">Census Reporter</a>.
 
-        Some code, techniques, and data on <a href="https://github.com/minnpost/minnpost-green-line-demographics" target="_blank">Github</a>.</p>
+        Some code, techniques, and data on <a href="https://github.com/minnpost/minnpost-swlrt-demographics" target="_blank">Github</a>.</p>
     </div>
   </div>
 </div>

@@ -31,13 +31,18 @@ body .node-unpublished {
     margin-bottom: 2em;
   }
 
-  .demographics-chooser {
+  .visual-container {
     margin-bottom: 3em;
+  }
+
+  .demographics-chooser {
+    width: 25%;
+    float: left;
 
     .demographic {
       text-align: center;
-      width: 25%;
-      float: left;
+      width: 100%;
+      margin-bottom: 1em;
 
       &:hover {
         background-color: #F8F8F8;
@@ -75,7 +80,8 @@ body .node-unpublished {
 
   .map-container {
     position: relative;
-    margin-bottom: 4em;
+    width: 75%;
+    float: left;
 
     .tooltip-container {
       position: absolute;
@@ -94,12 +100,12 @@ body .node-unpublished {
     }
   }
 
-  #green-line-map {
+  #line-map {
     width: 100%;
-    height: 20em;
+    height: 50em;
     pointer-events: none;
 
-    .greenline-route {
+    .route {
       fill: transparent;
       stroke: #1D8C47;
       // Note that stroke width gets scaled with SVG transforms
@@ -148,9 +154,19 @@ body .node-unpublished {
         opacity: 0.45;
       }
 
+      &.waterway {
+        fill: none;
+        stroke: #0793AB;
+        opacity: 0.5;
+      }
+
       &.landmark {
         fill: #ABABAB;
-        fill: none;
+      }
+
+      &.interstate {
+        stroke: #636363;
+        stroke-width: 0.0001em;
       }
 
       &.highway {

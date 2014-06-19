@@ -119,7 +119,7 @@ define('minnpost-swlrt-demographics', [
     // Build base D3 Map
     buildMap: function() {
       var thisApp = this;
-      var $container = this.$el.find('#green-line-map');
+      var $container = this.$el.find('#line-map');
       var width = $container.width();
       var height = $container.height();
 
@@ -131,7 +131,7 @@ define('minnpost-swlrt-demographics', [
       // Make projection and path handler.  Use mercator for the trueness of
       // direction and at this scale, the area should not be warped
       // significantly
-      var projectionData = this.data.greenLine;
+      var projectionData = this.data.route;
       var centroid = d3.geo.centroid(projectionData);
       var projection = d3.geo.mercator()
         .scale(150)
@@ -160,7 +160,7 @@ define('minnpost-swlrt-demographics', [
 
       // Add landmarks
       this.data.landmarks = topojson.feature(this.data.landmarksTopo,
-        this.data.landmarksTopo.objects['landmarks.geo']);
+        this.data.landmarksTopo.objects['area-features.geo']);
       featureGroup.selectAll('.landmark-feature')
         .data(this.data.landmarks.features)
         .enter().append('path')
@@ -169,11 +169,11 @@ define('minnpost-swlrt-demographics', [
           })
           .attr('d', projectionPath);
 
-      // Add green line route
-      featureGroup.selectAll('.greenline-route')
-        .data(this.data.greenLine.features)
+      // Add line route
+      featureGroup.selectAll('.route')
+        .data(this.data.route.features)
         .enter().append('path')
-          .attr('class', 'greenline-route')
+          .attr('class', 'route')
           .attr('d', projectionPath);
 
       // Add stops
@@ -336,15 +336,16 @@ define('minnpost-swlrt-demographics', [
       var thisApp = this;
 
       return helpers.getLocalData([
-        'metrotransit-green-line.geo.json',
-        'metrotransit-green-line-stops.geo.json',
-        'landmarks.topo.json',
+        'swlrt-route.geo.json',
+        'swlrt-stops.geo.json',
+        'features.topo.json',
         'census-tracts.topo.json'
       ], this.options)
         .done(function(a, b, c, d) {
           thisApp.data = thisApp.data || {};
-          thisApp.data.greenLine = a[0];
+          thisApp.data.route = a[0];
           thisApp.data.stops = b[0];
+          console.log(c[0]);
           thisApp.data.landmarksTopo = c[0];
           thisApp.data.tractsTopo = d[0];
 
