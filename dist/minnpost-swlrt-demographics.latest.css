@@ -94,7 +94,7 @@ body .node-unpublished {
 .mp .minnpost-swlrt-demographics-container #line-map .route {
   fill: transparent;
   stroke: #1D8C47;
-  stroke-width: 0.00015em;
+  stroke-width: 0.0002em;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
@@ -110,9 +110,7 @@ body .node-unpublished {
 }
 .mp .minnpost-swlrt-demographics-container #line-map .census-tract {
   fill: #FFFFFF;
-  fill-opacity: 0.85;
   stroke: #FFFFFF;
-  stroke-opacity: 0.75;
   stroke-width: 0.000025em;
   pointer-events: all;
 }
@@ -121,22 +119,25 @@ body .node-unpublished {
   stroke: #222222;
   stroke-width: 0.000025em;
 }
+.mp .minnpost-swlrt-demographics-container #line-map .boundary {
+  fill: none;
+  stroke-width: 0.0001em;
+  stroke-dasharray: 0.003,0.004;
+  stroke: #545454;
+}
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature {
   fill: transparent;
   stroke: none;
-  opacity: 0.7;
   stroke-width: 0.00005em;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature.water {
   fill: #0793AB;
-  opacity: 0.45;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature.waterway {
   fill: none;
   stroke: #0793AB;
-  opacity: 0.5;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature.landmark {
   fill: #ABABAB;
