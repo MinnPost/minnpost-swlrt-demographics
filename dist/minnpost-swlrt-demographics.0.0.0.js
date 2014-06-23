@@ -248,6 +248,7 @@ define('minnpost-swlrt-demographics', [
       var $container = this.$el.find('#line-map');
       var width = $container.width();
       var height = $container.height();
+      var pointRadiusBase = 0.0035;
 
       // Make canvas
       var svg = d3.select($container[0]).append('svg')
@@ -263,7 +264,9 @@ define('minnpost-swlrt-demographics', [
         .scale(150)
         .translate([width / 2, height / 2]);
       var projectionPath = d3.geo.path().projection(projection)
-        .pointRadius(function(d) { return 0.0015; });
+        .pointRadius(pointRadiusBase);
+      var projectionPathLarge = d3.geo.path().projection(projection)
+        .pointRadius(pointRadiusBase * 2);
 
       // Make group for features
       var featureGroup = this.featureGroup = svg.append('g').attr('class', 'feature-group');
@@ -293,16 +296,35 @@ define('minnpost-swlrt-demographics', [
           .attr('class', 'boundary')
           .attr('d', projectionPath);
 
-      // Add landmarks
+      // Add landmarks (non-labels)
       this.data.landmarks = topojson.feature(this.data.landmarksTopo,
         this.data.landmarksTopo.objects['area-features.geo']);
       featureGroup.selectAll('.landmark-feature')
         .data(this.data.landmarks.features)
         .enter().append('path')
+          .filter(function(d) {
+            return (d.properties.type !== 'city-label');
+          })
           .attr('class', function(d) {
             return 'landmark-feature ' + d.properties.type;
           })
           .attr('d', projectionPath);
+
+      // Add labels
+      featureGroup.selectAll('.city-label')
+        .data(this.data.landmarks.features)
+        .enter().append('text')
+          .filter(function(d) {
+            return (d.properties.type === 'city-label');
+          })
+          .attr('class', 'city-label')
+          .attr('dx', function(d) {
+            return projection(d.geometry.coordinates)[0];
+          })
+          .attr('dy', function(d) {
+            return projection(d.geometry.coordinates)[1];
+          })
+          .text(function(d) { return d.properties.name; });
 
       // Add line route
       featureGroup.selectAll('.route')
@@ -331,14 +353,19 @@ define('minnpost-swlrt-demographics', [
         .enter().append('path')
           .attr('class', 'voronoi-stops')
           .attr('d', function(d) { return 'M' + d.join('L') + 'Z'; })
-          .on('mouseover', function(d) {
-            d3.select(d.point.stop).classed('active', true);
+          .on('mouseover', function(d, i) {
+            d3.select(d.point.stop)
+              .attr('d', projectionPathLarge(d.point))
+              .classed('active', true);
             thisApp.updateTooltip({
-              stop: d.point.properties.Station
+              stop: d.point.properties.Station,
+              bottom: (projection(d.point.geometry.coordinates)[1] > 220.09579)
             });
           })
           .on('mouseout', function(d) {
-            d3.select(d.point.stop).classed('active', false);
+            d3.select(d.point.stop)
+              .attr('d', projectionPath(d.point))
+              .classed('active', false);
             thisApp.updateTooltip(false);
           });
 
@@ -380,7 +407,7 @@ define('minnpost-swlrt-demographics', [
         var values = this.data.tracts.features.map(s.access).sort(function(a, b) {
           return a - b;
         });
-        s.scale = d3.scale.quantile()
+        s.scale = d3.scale.quantize()
           .domain(values)
           .range(s.colors);
 
@@ -447,6 +474,7 @@ define('minnpost-swlrt-demographics', [
 
     // Update tooltip
     updateTooltip: function(content) {
+      var $tooltipContainer = this.$('.tooltip-container');
       var $tooltip = this.$('.tooltip');
       var $stop = this.$('.tooltip .stop-info');
       var $tract = this.$('.tooltip .tract-info');
@@ -456,6 +484,11 @@ define('minnpost-swlrt-demographics', [
       }
       else {
         $tooltip.show();
+      }
+
+      $tooltipContainer.removeClass('bottom');
+      if (content.bottom) {
+        $tooltipContainer.addClass('bottom');
       }
 
       if (_.isObject(content) && content.stop) {
