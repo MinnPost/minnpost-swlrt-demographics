@@ -5,8 +5,7 @@
 // CSS-Clean which is used by the grunt-css-min module cuts off pixel
 // decimal points, so we use em's.   :(
 // https://github.com/GoalSmashers/clean-css/issues/287
-$stroke-base: 0.0001em;
-
+$stroke-base: 0.001;
 $landmark-base: #ABABAB;
 
 
@@ -116,7 +115,7 @@ body .node-unpublished {
       fill: transparent;
       stroke: #1D8C47;
       // Note that stroke width gets scaled with SVG transforms
-      stroke-width: 0.00025em;
+      stroke-width: $stroke-base * 2;
       stroke-linejoin: round;
       stroke-linecap: round;
     }
@@ -133,27 +132,20 @@ body .node-unpublished {
     .census-tract {
       fill: #FFFFFF;
       stroke: #FFFFFF;
-      stroke-width: 0.000025em;
+      stroke-width: $stroke-base / 4;
       pointer-events: all;
     }
 
-    .census-tract-outline {
-      fill: none;
-      stroke: #222222;
-      stroke-width: 0.000025em;
-    }
-
-
     .boundary {
       fill: none;
-      stroke-width: 0.0001em;
+      stroke-width: $stroke-base;
       stroke-dasharray: 0.003,0.004;
       stroke: darken($landmark-base, 50);
     }
 
     .city-label {
       fill: #232323;
-      font-size: 0.00065em;
+      font-size: #{$stroke-base / 1.4}em;
       text-transform: uppercase;
       font-family: Montserrat,Georgia,"Times New Roman",Times,sans-serif;
     }
@@ -161,7 +153,7 @@ body .node-unpublished {
     .landmark-feature {
       fill: transparent;
       stroke: none;
-      stroke-width: 0.00005em;
+      stroke-width: $stroke-base / 2;
       stroke-linejoin: round;
       stroke-linecap: round;
 
@@ -180,12 +172,12 @@ body .node-unpublished {
 
       &.interstate {
         stroke: darken($landmark-base, 20);
-        stroke-width: 0.0001em;
+        stroke-width: $stroke-base;
       }
 
       &.highway {
         stroke: darken($landmark-base, 10);
-        stroke-width: 0.0001em;
+        stroke-width: $stroke-base;
       }
 
       &.street {
@@ -215,6 +207,27 @@ body .node-unpublished {
   }
 
   // Custom breakpoints
+  @media screen and (max-width: 950px) {
+
+    .demographics-chooser {
+      width: 100%;
+      float: none;
+
+
+      .demographic {
+        width: 25%;
+        float: left;
+        margin-bottom: 0;
+      }
+    }
+
+    .map-container {
+      width: 100%;
+      float: none;
+    }
+  }
+
+  // Custom breakpoints
   @media screen and (max-width: 875px) {
 
     .demographics-chooser .demographic {
@@ -223,6 +236,10 @@ body .node-unpublished {
   }
 
   @media screen and (max-width: 475px) {
+
+    #line-map {
+      height: 30em;
+    }
 
     .demographics-chooser .demographic {
       width: 100%;

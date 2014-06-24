@@ -225,6 +225,10 @@ define('minnpost-swlrt-demographics', [
       featureGroup.selectAll('.voronoi-stops')
         .data(this.voronoiStops(this.data.stops.features))
         .enter().append('path')
+          .filter(function(d) {
+            // On small screen, something happens to the voronoi diagram
+            return d.length;
+          })
           .attr('class', 'voronoi-stops')
           .attr('d', function(d) { return 'M' + d.join('L') + 'Z'; })
           .on('mouseover', function(d, i) {
