@@ -2,7 +2,7 @@
 
 Exploration of the Southwest Light Rail (Green Line Extension).  Note that at current time, these are still just proposed stops and routes.
 
-You can see this project in action at *published story link goes here*.
+You can see this project in action [minnpost.com](http://www.minnpost.com/data/2014/06/sw-lrt-demographics).
 
 *Unless otherwise noted, MinnPost projects on [Github](https://github.com/minnpost) are story-driven and meant for transparency sake and not focused on re-use.  For a list of our more reusable projects, go to [code.minnpost.com](http://code.minnpost.com).*
 
@@ -18,7 +18,7 @@ You can see this project in action at *published story link goes here*.
     * [Direct download](ftp://gisftp.metc.state.mn.us/CountiesAndCTUs.zip)
 * Landmark features are manually traced on [GeoJSON.io](http://geojson.io/#id=gist:zzolo/791b7cd1153d65a4452d&map=12/44.9051/-93.3828).
     * [Direct download](https://gist.githubusercontent.com/zzolo/791b7cd1153d65a4452d/raw/a3be1eaa5e4f328424c0948b31210370c9724925/map.geojson)
-* Census tracts are manually collected using the interface of [Census Reporter]().
+* Census tracts are manually collected using the interface of [Census Reporter](http://censusreporter.org/) and then relevant census data is downloaded from Census Reporter as well.
 
 ## Data processing
 
