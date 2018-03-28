@@ -116,7 +116,7 @@ body .node-unpublished {
   fill: none;
   stroke-width: 0.001;
   stroke-dasharray: 0.003,0.004;
-  stroke: #2b2b2b;
+  stroke: #2c2c2c;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .city-label {
   fill: #232323;
@@ -139,18 +139,18 @@ body .node-unpublished {
   stroke: #0793AB;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature.landmark {
-  fill: #ababab;
+  fill: #ABABAB;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature.interstate {
   stroke: #787878;
   stroke-width: 0.001;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature.highway {
-  stroke: #919191;
+  stroke: #929292;
   stroke-width: 0.001;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .landmark-feature.street {
-  stroke: #ababab;
+  stroke: #ABABAB;
 }
 .mp .minnpost-swlrt-demographics-container #line-map .voronoi-stops {
   fill: transparent;

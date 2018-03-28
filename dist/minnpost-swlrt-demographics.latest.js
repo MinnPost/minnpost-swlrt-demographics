@@ -530,7 +530,7 @@ define('minnpost-swlrt-demographics', [
     // Default options
     defaultOptions: {
       projectName: 'minnpost-swlrt-demographics',
-      remoteProxy: 'http://mp-jsonproxy.herokuapp.com/proxy?callback=?&url=',
+      remoteProxy: 'https://mp-jsonproxy.herokuapp.com/proxy?callback=?&url=',
       el: '.minnpost-swlrt-demographics-container',
       availablePaths: {
         local: {
